@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil Salvi - Digital Marketing & Business Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            background: var(--bg-white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .header .title {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: var(--text-dark);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Overview Section */
+        .overview-text {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .achievement-box .stat {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-box .label {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .exp-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .exp-period {
+            font-size: 13px;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-highlight {
+            background: #ecfdf5;
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .exp-bullets {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-left: 1.5rem;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .skill-card .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skill-card .items {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-role {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .metric i {
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #f0f4ff;
+            color: var(--primary);
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+
+        .education-item .school {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .education-item .details {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-item {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .cert-item h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-dark);
+        }
+
+        .cert-item p {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+                box-shadow: none;
+            }
+            .tabs {
+                display: none;
+            }
+            .tab-content {
+                display: block !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .contact-info {
+                gap: 1rem;
+                font-size: 12px;
+            }
+            .tabs {
+                gap: 0;
+            }
+            .tab-button {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .exp-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Sunil Salvi</h1>
+            <div class="title">Digital Marketing & Business Development Specialist</div>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91-8875556645</span>
+                <span><i class="fas fa-envelope"></i> sksalvi678@gmail.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Udaipur, Rajasthan</span>
+                <span><i class="fas fa-linkedin"></i> <a href="https://www.linkedin.com/in/sunilsalvi/" target="_blank" style="color: var(--primary); text-decoration: none;">LinkedIn</a></span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab(event, 'overview')">
+                <i class="fas fa-briefcase" style="margin-right: 6px;"></i>Overview
+            </button>
+            <button class="tab-button" onclick="showTab(event, 'experience')">
+                <i class="fas fa-history" style="margin-right: 6px;"></i>Experience
+            </button>
+            <button class="tab-button" onclick="showTab(event, 'portfolio')">
+                <i class="fas fa-project-diagram" style="margin-right: 6px;"></i>Portfolio
+            </button>
+            <button class="tab-button" onclick="showTab(event, 'skills')">
+                <i class="fas fa-star" style="margin-right: 6px;"></i>Skills
+            </button>
+            <button class="tab-button" onclick="showTab(event, 'education')">
+                <i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Education
+            </button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <p class="overview-text">
+                Accomplished digital marketing specialist with 4+ years of proven expertise in driving measurable business growth through data-driven strategies. Skilled in SEO/SEM, social media marketing, and content creation with a track record of scaling organic traffic and maximizing ROI. Currently leading digital marketing initiatives at Hoicko Technologies while managing business development for SAP solutions. Detail-oriented problem solver with strong technical foundation and entrepreneurial mindset.
+            </p>
+
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 1.5rem; color: var(--text-dark);">Key Achievements</h3>
+            <div class="achievements">
+                <div class="achievement-box">
+                    <div class="stat">230%</div>
+                    <div class="label">Organic blog traffic growth in 5 months through SEO optimization</div>
+                </div>
+                <div class="achievement-box">
+                    <div class="stat">4+</div>
+                    <div class="label">Years of consistent success across digital marketing roles</div>
+                </div>
+                <div class="achievement-box">
+                    <div class="stat">7+</div>
+                    <div class="label">Professional tools mastered: WordPress, Analytics, SEMRUSH, Canva, Mailchimp</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Tab -->
+        <div id="experience" class="tab-content">
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Digital Marketing Executive</h3>
+                    <span class="exp-period">Jan 2022 – Present</span>
+                </div>
+                <div class="exp-company">Hoicko Technologies Pvt. Ltd. | Udaipur</div>
+                <div class="exp-highlight">Leading complete digital marketing strategy for B2B SaaS platform (SAP integration solutions)</div>
+                <ul class="exp-bullets">
+                    <li>Setup and optimize WordPress website with SEO best practices and responsive design</li>
+                    <li>Manage comprehensive digital marketing stack: Google Search Console, Tag Manager, Analytics, Ads</li>
+                    <li>Lead digital marketing team coordination and execute multi-channel strategy</li>
+                    <li>Execute SEO/SEM, email marketing, display advertising campaigns with continuous optimization</li>
+                    <li>Provide post-sales support and manage customer success initiatives</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Digital Marketing Executive & Business Analyst</h3>
+                    <span class="exp-period">July 2019 – Dec 2021</span>
+                </div>
+                <div class="exp-company">Webfast Solution | Udaipur</div>
+                <div class="exp-highlight">Drove 230% organic traffic growth through content strategy overhaul</div>
+                <ul class="exp-bullets">
+                    <li>Revamped SEO content strategy resulting in 230% organic blog traffic increase within 5 months</li>
+                    <li>Grew social media engagement across Twitter, LinkedIn, Facebook, Instagram with targeted content</li>
+                    <li>Set up and optimized Google Ads campaigns with strategic keyword planning and bid management</li>
+                    <li>Developed brand content and designed marketing materials (posts, flyers, sliders) using Canva</li>
+                    <li>Optimized social media campaigns for increased user engagement and page conversion rates</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Freelance Digital Marketer</h3>
+                    <span class="exp-period">May 2017 – July 2019</span>
+                </div>
+                <div class="exp-company">Freelancer & Upwork Platforms | Remote</div>
+                <div class="exp-highlight">Self-managed multiple projects across diverse industries and client types</div>
+                <ul class="exp-bullets">
+                    <li>Analyzed and bid on projects with strategic focus on fit and ROI</li>
+                    <li>Managed end-to-end client communication, budgeting, forecasting, and project delivery</li>
+                    <li>Executed digital advertising campaigns and developed custom marketing strategies</li>
+                    <li>Created website content and maintained brand presence across multiple channels</li>
+                    <li>Used Google Analytics to measure effectiveness and optimize campaign performance</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Digital Marketing Executive & Business Analyst</h3>
+                    <span class="exp-period">May 2016 – May 2017</span>
+                </div>
+                <div class="exp-company">Tempsens Instrumentation (I) Pvt. Ltd. | Udaipur</div>
+                <ul class="exp-bullets">
+                    <li>Conducted detailed business analysis and identified growth opportunities</li>
+                    <li>Built new client pipeline through email marketing and social media outreach</li>
+                    <li>Executed lead generation campaigns and brand promotion initiatives</li>
+                    <li>Managed campaigns across varying budgets with strong ROI focus</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <h3>Business Analyst</h3>
+                    <span class="exp-period">Aug 2015 – Feb 2016</span>
+                </div>
+                <div class="exp-company">Outstrip InfoTech Pvt. Ltd. | Jaipur</div>
+                <ul class="exp-bullets">
+                    <li>Conducted comprehensive business analysis with problem and opportunity assessment</li>
+                    <li>Performed budgeting, forecasting, and variance analysis for stakeholders</li>
+                    <li>Defined business requirements and reported findings to management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Portfolio Tab -->
+        <div id="portfolio" class="tab-content">
+            <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 2rem; color: var(--text-dark);">Featured Projects & Initiatives</h2>
+            
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Hoicko B2B SaaS Platform</h3>
+                        <div class="project-role">Digital Marketing Lead | 2022 – Present</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Leading end-to-end digital marketing for Hoicko's SAP integration solution targeting enterprise clients. Responsible for brand positioning, SEO, content strategy, and lead generation.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-check"></i> WordPress site setup & optimization</div>
+                            <div class="metric"><i class="fas fa-check"></i> Complete Google Analytics implementation</div>
+                            <div class="metric"><i class="fas fa-check"></i> Multi-channel campaign orchestration</div>
+                            <div class="metric"><i class="fas fa-check"></i> Team leadership & coordination</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Google Ads</span>
+                            <span class="tag">Lead Generation</span>
+                            <span class="tag">B2B Marketing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Organic Traffic Growth Campaign</h3>
+                        <div class="project-role">SEO & Content Strategy | 2019 – 2021</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Comprehensive SEO content overhaul that resulted in 230% organic traffic growth within 5 months. Implemented keyword research, content optimization, and technical SEO improvements.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-arrow-up"></i> 230% traffic growth (5 months)</div>
+                            <div class="metric"><i class="fas fa-arrow-up"></i> Ranked for 50+ target keywords</div>
+                            <div class="metric"><i class="fas fa-arrow-up"></i> Improved domain authority</div>
+                            <div class="metric"><i class="fas fa-arrow-up"></i> Lead quality & conversion</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">SEO</span>
+                            <span class="tag">Content Strategy</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Technical SEO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Social Media Growth Initiative</h3>
+                        <div class="project-role">Social Media Manager | 2019 – 2021</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Managed and grew social media presence across multiple platforms. Developed content strategy, executed campaigns, and improved audience engagement metrics significantly.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-users"></i> Multi-platform management (4 platforms)</div>
+                            <div class="metric"><i class="fas fa-chart-line"></i> Consistent engagement growth</div>
+                            <div class="metric"><i class="fas fa-pen-fancy"></i> Content design & copywriting</div>
+                            <div class="metric"><i class="fas fa-target"></i> Targeted audience development</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Content Creation</span>
+                            <span class="tag">Canva Design</span>
+                            <span class="tag">Community Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Google Ads Campaign Management</h3>
+                        <div class="project-role">SEM Specialist | 2017 – Present</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Designed and managed multiple Google Ads campaigns across different industries and budgets. Optimized keyword strategy, bidding, and targeting for maximum ROI.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-check"></i> Campaign setup & optimization</div>
+                            <div class="metric"><i class="fas fa-check"></i> Keyword research & management</div>
+                            <div class="metric"><i class="fas fa-check"></i> Budget allocation & forecasting</div>
+                            <div class="metric"><i class="fas fa-check"></i> Performance analysis & reporting</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Google Ads</span>
+                            <span class="tag">SEM</span>
+                            <span class="tag">PPC</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Lead Generation & Business Analysis</h3>
+                        <div class="project-role">Business Analyst & Growth Lead | 2015 – Present</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Developed business analysis frameworks and led lead generation initiatives across multiple organizations. Created strategies for client acquisition and pipeline building.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-check"></i> Business requirements definition</div>
+                            <div class="metric"><i class="fas fa-check"></i> Email marketing campaigns</div>
+                            <div class="metric"><i class="fas fa-check"></i> Pipeline development & nurturing</div>
+                            <div class="metric"><i class="fas fa-check"></i> Financial forecasting & analysis</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Lead Generation</span>
+                            <span class="tag">Email Marketing</span>
+                            <span class="tag">Business Analysis</span>
+                            <span class="tag">Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Freelance Project Management</h3>
+                        <div class="project-role">Independent Marketer | 2017 – 2019</div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Successfully managed 20+ freelance projects on Freelancer and Upwork platforms. Delivered marketing solutions for startups, SMEs, and agencies with consistent positive feedback.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><i class="fas fa-star"></i> High client satisfaction rating</div>
+                            <div class="metric"><i class="fas fa-check"></i> Project scoping & budgeting</div>
+                            <div class="metric"><i class="fas fa-check"></i> Diverse industry experience</div>
+                            <div class="metric"><i class="fas fa-handshake"></i> Client relationship management</div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Freelancing</span>
+                            <span class="tag">Project Management</span>
+                            <span class="tag">Client Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="skills" class="tab-content">
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 1.5rem; color: var(--text-dark);">Professional Expertise</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="label">Marketing Strategy</div>
+                    <div class="items">SEO/SEM<br>Content Marketing<br>Social Media Strategy</div>
+                </div>
+                <div class="skill-card">
+                    <div class="label">Analytics & Tools</div>
+                    <div class="items">Google Analytics<br>Google Ads<br>SEMRUSH</div>
+                </div>
+                <div class="skill-card">
+                    <div class="label">Content & Design</div>
+                    <div class="items">WordPress<br>Canva Design<br>Copywriting</div>
+                </div>
+                <div class="skill-card">
+                    <div class="label">Email & Automation</div>
+                    <div class="items">Mailchimp<br>Campaign Management<br>Lead Nurturing</div>
+                </div>
+                <div class="skill-card">
+                    <div class="label">Business</div>
+                    <div class="items">Business Analysis<br>Lead Generation<br>Budget Planning</div>
+                </div>
+                <div class="skill-card">
+                    <div class="label">Technical</div>
+                    <div class="items">Frontend Testing<br>Tag Manager<br>Web Setup</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 1.5rem; margin-top: 2rem; color: var(--text-dark);">Personal Development</h3>
+            <div class="certifications">
+                <div class="cert-item">
+                    <h4><i class="fas fa-dumbbell"></i> Yoga & Fitness</h4>
+                    <p>Certified instructor in physical wellness and mindfulness practice</p>
+                </div>
+                <div class="cert-item">
+                    <h4><i class="fas fa-heart"></i> Mental Wellness</h4>
+                    <p>Trained mental health and wellness facilitator</p>
+                </div>
+                <div class="cert-item">
+                    <h4><i class="fas fa-calendar"></i> Event Planning</h4>
+                    <p>Experience in coordinating and executing events</p>
+                </div>
+                <div class="cert-item">
+                    <h4><i class="fas fa-music"></i> Dancing</h4>
+                    <p>Dance instructor and performer with teaching experience</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Tab -->
+        <div id="education" class="tab-content">
+            <div class="education-item">
+                <h3>Master of Business Administration (Marketing)</h3>
+                <div class="school">Maharaja College of Management, Udaipur</div>
+                <div class="details">Rajasthan Technical University, Kota | Grade: 65%</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Bachelor of Technology (Information Technology)</h3>
+                <div class="school">Aravali Institute of Technical Studies, Udaipur</div>
+                <div class="details">Rajasthan Technical University, Kota | Grade: 63.84%</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Senior Secondary (12th, PCM)</h3>
+                <div class="school">Govt. Guru Gobind Singh Senior Sec. School, Udaipur</div>
+                <div class="details">Grade: 64%</div>
+            </div>
+
+            <div style="background: #f0f4ff; border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                <p style="font-size: 14px; color: var(--text-dark); line-height: 1.8;">
+                    <strong>Additional Expertise:</strong> Web development fundamentals (ASP.net), database testing (C, C++), and full-stack digital marketing implementation across diverse industries. Continuous learner with focus on emerging marketing technologies and industry trends.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(event, tabName) {
+            // Hide all content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected content and activate button
+            document.getElementById(tabName).classList.add('active');
+            event.target.closest('.tab-button').classList.add('active');
+        }
+    </script>
+</body>
+</html>
